@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercice 4 - partie 3</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+
+</head>
+<style>
+
+    .rectangle{
+	width:100px;
+	height:50px;
+    border:3px solid black;
+    display: flex;
+    margin: auto;
+    margin-top: 20px;
+    }
+    .buttons{
+        padding: 20px;
+        text-align: center;
+    }
+</style>
+
+<body>
+
+    <!--Construisez une page html avec **5 boutons** et **un rectangle**.  
+Chaque bouton provoque une action sur le rectangle :
+* Bouton 1 : Augmente la hauteur de 10px, s'il dépasse 100px, il remet la hauteur à 10px.
+* Bouton 2 : Met le rectangle en vert.
+* Bouton 3 : Remet les couleurs initiales.
+* Bouton 4 : Fait disparaître le rectangle.
+* Bouton 5 : Fait réaparaître le rectangle.-->
+    <div class="rectangle">
+
+    </div>
+
+    <div class="buttons">
+        <button class="increaseHeight">*10px</button>
+        <button class="green">green</button>
+        <button class="reset">reset</button>
+        <button class="hide">hide</button>
+        <button class="show">show</button>
+    </div>
+
+
+
+    <script>
+          $(".increaseHeight").click(function(){
+       let initialHeight = $(".rectangle") .height();
+       let finalHeight = initialHeight +10
+       let actualPixel = $(".rectangle").css("height", finalHeight+ "px") 
+       
+       if(finalHeight == 100){
+        $(".rectangle").css("height", "50px");
+
+       }
+     });
+
+        $(function(){
+            $(".green").click(function(){
+
+                $(".rectangle").css("border-color","green");
+            })
+            $(".reset").click(function(){
+                $(".rectangle").css("border-color","");
+            })
+        })
+
+
+        $(function(){
+
+            $(".hide").click(function(){
+
+                $(".rectangle").hide();
+            })
+            $(".show").click(function(){
+                $(".rectangle").show();
+            })
+
+        })
+
+    </script>
+    
+</body>
+</html>

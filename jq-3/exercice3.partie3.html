@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercice 3 - partie 3</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <!--Construisez une page html avec un **bouton** et **un champ texte**.  
+Le but est de trouver un nombre entre 0 et 100.  
+A chaque réponse la page répond :
+* Plus.
+* Moins.
+correcte
+* Quand la réponse est trouvée, on obtient le nombre d'essai que l'on a fait.
+.-->
+<div class="container">
+
+    <input type="button" value="Cliquez" id="btn">
+    <input type="text" id="inputNumber">
+    <p id="inner"></p>
+
+</div>
+
+<script>
+    let numberGuess = Math.floor(Math.random() * 101);;
+    let attemps= 0;
+    $(function(){
+
+        $("#btn").click(function() {
+            number = $("#inputNumber").val();
+            if(number > numberGuess){
+                attemps++
+                $("#inner").html("c'est plus petit");
+            }else if (number < numberGuess){
+                attemps ++
+                $("#inner").html("c'est plus grand");
+            }else{
+
+                $("#inner").html("vous avez trouvé bravo : " + attemps + " essai(s) ");   
+
+            }
+                
+              
+            
+    });
+})
+
+
+
+ </script>
+    
+</body>
+</html>
